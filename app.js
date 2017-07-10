@@ -13,7 +13,7 @@ function printMessage (username, badgeCount, points) {
 
 function getProfile (username) {
 //Connect to the Treehouse API
-	const request = https.get (`https://teamtreehouse.com/dcneuts.json`, response => {
+	const request = https.get (`https://teamtreehouse.com/${username}.json`, response => {
 		let body = "";
 		
 		response.on ('data', data => {
@@ -28,4 +28,5 @@ function getProfile (username) {
 	
 }
 
-getProfile("dcneuts");
+const users = ["dcneuts", "chalkers", "davemcfarland"];
+users.forEach(getProfile);
