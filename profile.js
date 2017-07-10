@@ -24,7 +24,7 @@ function get (username) {
 //Connect to the Treehouse API
 		const request = https.get (`https://teamtreehouse.com/${username}.json`, response => {
 			//Wrapping the blocks with if statement for status code based error messages
-			if (response.statusCode == 200) {
+			if (response.statusCode === 200) {
 				let body = "";
 				
 				response.on ('data', data => {
