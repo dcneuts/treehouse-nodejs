@@ -25,7 +25,7 @@ function getProfile (username) {
 			printMessage (username, profile.badges.length, profile.points.JavaScript);
 		});
 	});
-	
+	request.on('error', error => console.error(`Problem with request: ${error.message}`));
 }
 
 //const users = ["dcneuts", "chalkers", "davemcfarland"];
