@@ -4,6 +4,11 @@
 "use strict";
 const https = require ('https');
 
+//General error handling
+function printError(error) {
+	console.error(error.message);
+}
+
 //Print message to console
 function printMessage (username, badgeCount, points) {
 	const message = `${username} has ${badgeCount} total badge(s) and ${points} points in JavaScript`;
@@ -26,14 +31,14 @@ function getProfile (username) {
 					const profile = JSON.parse (body);
 					printMessage (username, profile.badges.length, profile.points.JavaScript);
 				} catch (error) {
-					console.error(error.message);
+					printError(error);
 				}
 			});
 		});
 		request.on ('error', error => console.error (`Problem with request: ${error.message}`));
 		// use 'catch' at the end of the nested 'try' code block to capture error and then console log via error method
 	} catch (error) {
-		console.error (error.message);
+		printError(error);
 	}
 }
 //const users = ["dcneuts", "chalkers", "davemcfarland"];
