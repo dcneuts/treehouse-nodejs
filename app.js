@@ -22,14 +22,18 @@ function getProfile (username) {
 			});
 			
 			response.on ('end', () => {
-				const profile = JSON.parse (body);
-				printMessage (username, profile.badges.length, profile.points.JavaScript);
+				try {
+					const profile = JSON.parse (body);
+					printMessage (username, profile.badges.length, profile.points.JavaScript);
+				} catch (error) {
+					console.error(error.message);
+				}
 			});
 		});
 		request.on ('error', error => console.error (`Problem with request: ${error.message}`));
 		// use 'catch' at the end of the nested 'try' code block to capture error and then console log via error method
 	} catch (error) {
-		console.error(error.message);
+		console.error (error.message);
 	}
 }
 //const users = ["dcneuts", "chalkers", "davemcfarland"];
