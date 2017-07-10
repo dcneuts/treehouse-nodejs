@@ -28,5 +28,6 @@ function getProfile (username) {
 	
 }
 
-const users = ["dcneuts", "chalkers", "davemcfarland"];
+//const users = ["dcneuts", "chalkers", "davemcfarland"];
+const users = process.argv.slice(2);
 users.forEach(getProfile);
