@@ -5,6 +5,7 @@
 
 //const users = ["dcneuts", "chalkers", "davemcfarland"];
 
+//Path to the JS file is mandatory
 const profile = require('./profile.js');
 
 const users = process.argv.slice (2);
